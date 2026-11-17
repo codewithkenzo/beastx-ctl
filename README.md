@@ -1,82 +1,66 @@
 # beastx
 
-Settings app for the WLMouse Beast X 4K on Linux. Change DPI, polling rate and sleep time, check the battery, and show it in your taskbar. The official app is Windows only; this one runs in your browser.
+Settings app for the WLMouse Beast X 4K on Linux. DPI, polling rate, sleep timer, battery, and a taskbar battery readout. Runs in your browser; the official app is Windows only.
 
-![Mouse settings](https://raw.githubusercontent.com/codewithkenzo/beastx-ctl/main/docs/screenshots/mouse.png)
+<p>
+  <img src="https://raw.githubusercontent.com/codewithkenzo/beastx-ctl/main/docs/screenshots/mouse.png" width="49%" alt="Mouse settings">
+  <img src="https://raw.githubusercontent.com/codewithkenzo/beastx-ctl/main/docs/screenshots/dpi.png" width="49%" alt="DPI stages">
+</p>
 
 ## Start
 
-You need Node 20 or newer (or Bun), and Chrome, Edge, Brave or Helium. Firefox and Safari can't talk to USB devices.
+Needs Node 20+ (or Bun) and Chrome, Edge, Brave or Helium. Firefox and Safari can't reach USB devices.
 
-**1. Let your user talk to the receiver.** Run this once, then unplug and replug the receiver:
+1. Give your user access to the receiver, then replug it:
 
-```sh
-npx beastx udev | sudo tee /etc/udev/rules.d/70-beastx.rules && sudo udevadm control --reload && sudo udevadm trigger
-```
+   ```sh
+   npx beastx udev | sudo tee /etc/udev/rules.d/70-beastx.rules && sudo udevadm control --reload && sudo udevadm trigger
+   ```
 
-**2. Open the app:**
+2. Open the app:
 
-```sh
-npx beastx
-```
+   ```sh
+   npx beastx
+   ```
 
-It opens in your browser at `http://127.0.0.1:5174`. Click "Pick receiver" and choose the Wireless Gaming Mouse. Using Bun? Swap `npx` for `bunx`.
+   Click "Pick receiver" and choose Wireless Gaming Mouse. With Bun, use `bunx beastx`.
 
-## Keep it installed
+Works the same on any distro. On macOS and Windows, skip step 1 (untested, reports welcome).
 
-`npx` downloads it each time. To keep it on your computer instead:
+## Keep it running
+
+Install it, then start it at login on `http://127.0.0.1:5174`:
 
 ```sh
 npm install -g beastx
-beastx
+mkdir -p ~/.config/systemd/user && printf '[Service]\nExecStart=%s %s web --no-open\nRestart=on-failure\n\n[Install]\nWantedBy=default.target\n' "$(command -v node)" "$(readlink -f "$(command -v beastx)")" > ~/.config/systemd/user/beastx.service && systemctl --user enable --now beastx
 ```
 
-To have it running all the time (always at `http://127.0.0.1:5174`), add a user service:
-
-```ini
-# ~/.config/systemd/user/beastx.service
-[Unit]
-Description=beastx mouse settings
-
-[Service]
-ExecStart=%h/.npm-global/bin/beastx web --no-open
-Restart=on-failure
-
-[Install]
-WantedBy=default.target
-```
-
-Point `ExecStart` at the path `which beastx` prints, then run `systemctl --user enable --now beastx`.
+Stop it with `systemctl --user disable --now beastx`.
 
 ## Taskbar battery
 
-`beastx watch` feeds Waybar or Wayle with the battery and DPI. Setup: [docs/taskbar.md](https://github.com/codewithkenzo/beastx-ctl/blob/main/docs/taskbar.md).
+`beastx watch` feeds Waybar or Wayle. Config: [docs/taskbar.md](https://github.com/codewithkenzo/beastx-ctl/blob/main/docs/taskbar.md).
 
-## Changing settings safely
+## Safety
 
-![DPI stages](https://raw.githubusercontent.com/codewithkenzo/beastx-ctl/main/docs/screenshots/dpi.png)
-
-- The app only reads at first. To change settings, save a backup of your current settings, then turn on "Experimental writes". It remembers both.
-- It never updates firmware, pairs devices or resets the mouse.
-- Everything stays on your computer. No accounts, no network calls.
+- Read-only until you save a backup and turn on "Experimental writes". Both are remembered.
+- No firmware updates, pairing or resets.
+- Nothing leaves your computer.
 
 ## Commands
 
-| Command | What it does |
-| --- | --- |
-| `beastx` | Opens the app (same as `beastx web`) |
-| `beastx web --port 5175 --no-open` | Pick a port, don't open the browser |
-| `beastx udev` | Prints the udev rule |
-| `beastx status` | Prints battery and DPI once |
-| `beastx watch` | Prints battery and DPI whenever they change |
-
-## macOS and Windows
-
-The app may work there without the udev step, in Chrome or Edge. Nobody has tried it yet; tell us if it works. The taskbar commands are Linux only.
+| Command                            | Does                       |
+| ---------------------------------- | -------------------------- |
+| `beastx`                           | Opens the app              |
+| `beastx web --port 5175 --no-open` | Other port, no browser     |
+| `beastx udev`                      | Prints the udev rule       |
+| `beastx status`                    | Battery and DPI, once      |
+| `beastx watch`                     | Battery and DPI, on change |
 
 ## Credits
 
-Protocol notes from [rrroyal/wlmouse-beastx](https://github.com/rrroyal/wlmouse-beastx) and [mee7ya/wlmouse-cli](https://github.com/mee7ya/wlmouse-cli). Not affiliated with WLMouse.
+Protocol notes from [rrroyal/wlmouse-beastx](https://github.com/rrroyal/wlmouse-beastx) and [mee7ya/wlmouse-cli](https://github.com/mee7ya/wlmouse-cli). Not affiliated with WLMouse. MIT.
 
 ## Develop
 
@@ -84,7 +68,5 @@ Protocol notes from [rrroyal/wlmouse-beastx](https://github.com/rrroyal/wlmouse-
 bun install
 bun run --filter ./apps/web dev
 bun run check
-bun run --filter ./apps/cli bundle   # builds apps/cli/dist for npm
+bun run --filter ./apps/cli bundle
 ```
-
-MIT licence.
