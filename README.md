@@ -42,11 +42,34 @@ Stop it with `systemctl --user disable --now beastx`.
 
 `beastx watch` feeds Waybar or Wayle. Config: [docs/taskbar.md](https://github.com/codewithkenzo/beastx-ctl/blob/main/docs/taskbar.md).
 
-## Safety
+## Use
 
-- Read-only until you save a backup and turn on "Experimental writes". Both are remembered.
-- No firmware updates, pairing or resets.
-- Nothing leaves your computer.
+1. **Pick receiver.** The app reads your settings. If it says asleep, move the mouse.
+2. **Back up settings.** Saves `backup-<date>.json` to your downloads. Keep it.
+3. **Turn on Experimental writes** (bottom of the Mouse or DPI page). Settings stay locked until you do.
+4. Change what you want. Each change applies right away and is read back from the mouse.
+
+The backup and the switch are remembered, so this is a one-time setup.
+
+**Mouse**
+
+- Polling rate: reports per second, 125 to 4000 Hz.
+- Lift-off: height at which tracking stops, 1 or 2 mm.
+- Sleep after: idle time before the mouse sleeps.
+- Motion sync: on or off.
+- Debounce: click debounce time.
+- DPI: the active stage. Click to edit stages.
+
+**DPI**
+
+- Stage 1 to 8: the toggle enables a stage; set X and Y DPI and the stage colour.
+- Set active: makes that stage the current DPI.
+
+**Display**
+
+- Screen mode: Default or Custom.
+
+The palette button at the bottom left switches theme and light or dark.
 
 ## Commands
 
