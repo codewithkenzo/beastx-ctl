@@ -1,0 +1,10 @@
+.pi/
+refs/*
+!refs/SOURCES.md
+node_modules/
+dist/
+apps/cli/README.md
+PROMPT.md
+.agents/
+.tickets/
+.turbo/

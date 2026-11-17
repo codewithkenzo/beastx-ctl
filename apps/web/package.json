@@ -1,0 +1,36 @@
+{
+  "name": "@beastx-ctl/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173 --strictPort",
+    "build": "vite build",
+    "test": "vitest run",
+    "typecheck": "tsrs --noEmit"
+  },
+  "dependencies": {
+    "@beastx-ctl/protocol": "workspace:*",
+    "@beastx-ctl/ui": "workspace:*",
+    "@tanstack/react-form": "1.33.5",
+    "@tanstack/react-query": "5.107.1",
+    "@tanstack/react-router": "1.170.46",
+    "@tanstack/react-store": "0.11.2",
+    "effect": "4.1.4",
+    "kubai-icons-react": "0.10.0",
+    "motion": "14.14.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@effect/vitest": "4.1.4",
+    "@tailwindcss/vite": "4.3.5",
+    "@tanstack/router-plugin": "1.169.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "tailwindcss": "4.3.5",
+    "vite": "8.3.8",
+    "vitest": "5.1.0"
+  }
+}

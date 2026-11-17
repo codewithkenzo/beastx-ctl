@@ -1,0 +1,33 @@
+{
+  "name": "@beastx-ctl/ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens.css": "./src/tokens.generated.css",
+    "./language.css": "./src/language.css"
+  },
+  "scripts": {
+    "tokens": "bun scripts/tokens.ts",
+    "typecheck": "tsrs --noEmit"
+  },
+  "dependencies": {
+    "@base-ui/react": "1.9.0",
+    "kubai-icons-react": "0.10.0",
+    "react-colorful": "5.8.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "peerDependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  }
+}

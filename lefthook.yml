@@ -1,0 +1,22 @@
+pre-commit:
+  parallel: false
+  commands:
+    format:
+      glob: "*.{ts,tsx,js,mjs,json,jsonc,md,yml,yaml}"
+      exclude:
+        - ".agents/**"
+        - "docs/**"
+        - "refs/**"
+        - "device/**"
+        - ".tickets/**"
+        - "PROMPT.md"
+      run: bun run oxfmt --check {staged_files}
+    lint:
+      glob: "*.{ts,tsx,js,mjs}"
+      exclude:
+        - ".agents/**"
+      run: bun run lint:files {staged_files}
+    typecheck:
+      run: bun run typecheck
+    knip:
+      run: bun run knip

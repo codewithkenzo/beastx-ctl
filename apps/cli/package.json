@@ -1,0 +1,47 @@
+{
+  "name": "beastx",
+  "version": "0.1.0",
+  "description": "Settings app and taskbar battery for the WLMouse Beast X 4K on Linux",
+  "keywords": [
+    "beast-x",
+    "linux",
+    "mouse",
+    "waybar",
+    "wayle",
+    "webhid",
+    "wlmouse"
+  ],
+  "homepage": "https://github.com/codewithkenzo/beastx-ctl#readme",
+  "bugs": "https://github.com/codewithkenzo/beastx-ctl/issues",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codewithkenzo/beastx-ctl.git",
+    "directory": "apps/cli"
+  },
+  "bin": {
+    "beastx": "dist/beastx.js"
+  },
+  "files": [
+    "dist/beastx.js",
+    "dist/web",
+    "LICENSE",
+    "README.md"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "bun build --compile --outfile dist/beastx src/main.ts",
+    "bundle": "bun run --filter @beastx-ctl/web build && bun build --target node --minify --banner '#!/usr/bin/env node' --outfile dist/beastx.js src/main.ts && rm -rf dist/web && cp -R ../web/dist dist/web",
+    "prepack": "cp ../../README.md README.md",
+    "test": "vitest run",
+    "typecheck": "tsrs --noEmit",
+    "typecheck:effect": "effect-tsrs diagnostics -p tsconfig.json --strict"
+  },
+  "devDependencies": {
+    "@beastx-ctl/protocol": "workspace:*",
+    "effect": "4.1.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

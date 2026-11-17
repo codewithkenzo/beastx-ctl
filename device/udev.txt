@@ -1,0 +1,106 @@
+## hidraw8
+DEVPATH=/devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.4/1-2.4:1.0/0003:36A7:A887.002F/hidraw/hidraw8
+ID_BUS=usb
+ID_MODEL=Wireless_Gaming_Mouse
+ID_MODEL_ENC=Wireless\x20Gaming\x20Mouse
+ID_MODEL_ID=a887
+ID_SERIAL=wch.cn_Wireless_Gaming_Mouse_0123456789
+ID_SERIAL_SHORT=0123456789
+ID_VENDOR=wch.cn
+ID_VENDOR_ENC=wch.cn
+ID_VENDOR_ID=36a7
+ID_REVISION=0111
+ID_TYPE=hid
+ID_USB_MODEL=Wireless_Gaming_Mouse
+ID_USB_MODEL_ENC=Wireless\x20Gaming\x20Mouse
+ID_USB_MODEL_ID=a887
+ID_USB_SERIAL=wch.cn_Wireless_Gaming_Mouse_0123456789
+ID_USB_SERIAL_SHORT=0123456789
+ID_USB_VENDOR=wch.cn
+ID_USB_VENDOR_ENC=wch.cn
+ID_USB_VENDOR_ID=36a7
+ID_USB_REVISION=0111
+ID_USB_TYPE=hid
+ID_USB_INTERFACES=:030101:030102:
+ID_USB_INTERFACE_NUM=00
+ID_USB_DRIVER=usbhid
+ID_PATH_WITH_USB_REVISION=pci-0000:00:14.0-usbv2-0:2.4:1.0
+ID_PATH=pci-0000:00:14.0-usb-0:2.4:1.0
+ID_PATH_TAG=pci-0000_00_14_0-usb-0_2_4_1_0
+ID_INTEGRATION=external
+ID_FOR_SEAT=hidraw-pci-0000_00_14_0-usb-0_2_4_1_0
+## hidraw9
+DEVPATH=/devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.4/1-2.4:1.1/0003:36A7:A887.0030/hidraw/hidraw9
+ID_BUS=usb
+ID_MODEL=Wireless_Gaming_Mouse
+ID_MODEL_ENC=Wireless\x20Gaming\x20Mouse
+ID_MODEL_ID=a887
+ID_SERIAL=wch.cn_Wireless_Gaming_Mouse_0123456789
+ID_SERIAL_SHORT=0123456789
+ID_VENDOR=wch.cn
+ID_VENDOR_ENC=wch.cn
+ID_VENDOR_ID=36a7
+ID_REVISION=0111
+ID_TYPE=hid
+ID_USB_MODEL=Wireless_Gaming_Mouse
+ID_USB_MODEL_ENC=Wireless\x20Gaming\x20Mouse
+ID_USB_MODEL_ID=a887
+ID_USB_SERIAL=wch.cn_Wireless_Gaming_Mouse_0123456789
+ID_USB_SERIAL_SHORT=0123456789
+ID_USB_VENDOR=wch.cn
+ID_USB_VENDOR_ENC=wch.cn
+ID_USB_VENDOR_ID=36a7
+ID_USB_REVISION=0111
+ID_USB_TYPE=hid
+ID_USB_INTERFACES=:030101:030102:
+ID_USB_INTERFACE_NUM=01
+ID_USB_DRIVER=usbhid
+ID_PATH_WITH_USB_REVISION=pci-0000:00:14.0-usbv2-0:2.4:1.1
+ID_PATH=pci-0000:00:14.0-usb-0:2.4:1.1
+ID_PATH_TAG=pci-0000_00_14_0-usb-0_2_4_1_1
+ID_INTEGRATION=external
+ID_FOR_SEAT=hidraw-pci-0000_00_14_0-usb-0_2_4_1_1
+## hidraw10
+DEVPATH=/devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2.4/1-2.4:1.2/0003:36A7:A887.0031/hidraw/hidraw10
+ID_BUS=usb
+ID_MODEL=Wireless_Gaming_Mouse
+ID_MODEL_ENC=Wireless\x20Gaming\x20Mouse
+ID_MODEL_ID=a887
+ID_SERIAL=wch.cn_Wireless_Gaming_Mouse_0123456789
+ID_SERIAL_SHORT=0123456789
+ID_VENDOR=wch.cn
+ID_VENDOR_ENC=wch.cn
+ID_VENDOR_ID=36a7
+ID_REVISION=0111
+ID_TYPE=hid
+ID_USB_MODEL=Wireless_Gaming_Mouse
+ID_USB_MODEL_ENC=Wireless\x20Gaming\x20Mouse
+ID_USB_MODEL_ID=a887
+ID_USB_SERIAL=wch.cn_Wireless_Gaming_Mouse_0123456789
+ID_USB_SERIAL_SHORT=0123456789
+ID_USB_VENDOR=wch.cn
+ID_USB_VENDOR_ENC=wch.cn
+ID_USB_VENDOR_ID=36a7
+ID_USB_REVISION=0111
+ID_USB_TYPE=hid
+ID_USB_INTERFACES=:030101:030102:
+ID_USB_INTERFACE_NUM=02
+ID_USB_DRIVER=usbhid
+ID_PATH_WITH_USB_REVISION=pci-0000:00:14.0-usbv2-0:2.4:1.2
+ID_PATH=pci-0000:00:14.0-usb-0:2.4:1.2
+ID_PATH_TAG=pci-0000_00_14_0-usb-0_2_4_1_2
+ID_INTEGRATION=external
+ID_FOR_SEAT=hidraw-pci-0000_00_14_0-usb-0_2_4_1_2
+## node acl
+# file: /dev/hidraw8
+# owner: root
+# group: root
+user:kenzo:rw-
+# file: /dev/hidraw9
+# owner: root
+# group: root
+user:kenzo:rw-
+# file: /dev/hidraw10
+# owner: root
+# group: root
+user:kenzo:rw-

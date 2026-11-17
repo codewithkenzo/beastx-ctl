@@ -1,0 +1,17 @@
+{
+  "name": "@beastx-ctl/protocol",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsrs --noEmit",
+    "typecheck:effect": "effect-tsrs diagnostics -p tsconfig.json --strict"
+  },
+  "dependencies": {
+    "effect": "4.1.4"
+  }
+}

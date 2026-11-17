@@ -1,0 +1,17 @@
+:root {
+  --hatch-line: 1.5px;
+  --hatch-pitch: 6px;
+}
+
+@utility hatch {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--color-hatch) 0 var(--hatch-line),
+    transparent var(--hatch-line) var(--hatch-pitch)
+  );
+}
+
+.react-colorful .react-colorful__saturation,
+.react-colorful .react-colorful__last-control {
+  border-radius: var(--radius-control);
+}

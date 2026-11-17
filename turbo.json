@@ -1,0 +1,24 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "globalDependencies": ["oxlint.config.ts", "tsconfig.base.json"],
+  "tasks": {
+    "build:types": {
+      "outputs": ["dist/types/**"]
+    },
+    "transit": {
+      "dependsOn": ["^transit"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build:types", "transit"],
+      "outputs": []
+    },
+    "typecheck:effect": {
+      "dependsOn": ["^build:types", "transit"],
+      "outputs": []
+    },
+    "test": {
+      "dependsOn": ["transit"],
+      "outputs": []
+    }
+  }
+}

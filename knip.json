@@ -1,0 +1,39 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "rules": {
+    "files": "error",
+    "dependencies": "error",
+    "devDependencies": "error",
+    "optionalPeerDependencies": "error",
+    "unlisted": "error",
+    "binaries": "error",
+    "unresolved": "error",
+    "exports": "error",
+    "types": "error",
+    "nsExports": "error",
+    "nsTypes": "error",
+    "duplicates": "error",
+    "enumMembers": "warn"
+  },
+  "workspaces": {
+    ".": {
+      "project": ["*.ts"],
+      "ignoreBinaries": ["cccc"],
+      "ignoreDependencies": ["@effect/tsgo"],
+      "lefthook": true,
+      "oxlint": true
+    },
+    "packages/protocol": {
+      "vitest": true
+    },
+    "apps/cli": {
+      "entry": ["src/main.ts"],
+      "vitest": true
+    },
+    "apps/web": {
+      "entry": ["src/routes/**/*.tsx"],
+      "ignore": ["src/routeTree.generated.ts"],
+      "vite": true
+    }
+  }
+}
